@@ -1,0 +1,46 @@
+<h1>How Would You Do This?</h1>
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  Take a look at the environment below. Now picture your six-year-old cousin 
+  in that environment. He has something that he wants to do but needs somebody
+  to tell him how to do it. Give him instructions below so that he can complete
+  his goal.
+
+  Remember: your cousin is six, which means that he is old enough to understand
+  you but you might want to be a bit more precise than usual, just in case.
+</p>
+
+<h3>Environment: <%= @map.try(:objective).try(:environment).try(:name) %></h3>
+
+<%= image_tag @map.try(:scenario).try(:image).try(:url) %>
+
+<h3>Objective: <%= @map.try(:objective).try(:name) %></h3>
+
+<%= form_for(@input, url: create_input_path) do |f| %>
+  <% if @input.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@input.errors.count, "error") %> prohibited this scenario from being saved:</h2>
+
+      <ul>
+      <% @input.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= f.hidden_field(:objectives_scenarios_map_id, :value => @map.try(:id)) %>
+  
+  <div class="field">
+    <%= f.label :Give_Instructions_Here %><br />
+    <%= f.text_area :text %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+<%= link_to 'Try Another Scenario', index_path %>

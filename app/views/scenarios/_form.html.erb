@@ -1,0 +1,32 @@
+<%= form_for(@scenario) do |f| %>
+  <% if @scenario.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@scenario.errors.count, "error") %> prohibited this scenario from being saved:</h2>
+
+      <ul>
+      <% @scenario.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :environment_id %><br />
+    <%= f.select(:environment_id, options_from_collection_for_select(Environment.all, :id, :name, :selected => @scenario.environment_id)) %>
+  </div>
+  <div class="field">
+    <%= f.label :objective_ids %><br />
+    <%= f.select(:objective_ids, options_from_collection_for_select(Objective.all, :id, :name, :selected => @scenario.objective_ids), {}, {:multiple => true}) %>
+  </div>
+  <div class="field">
+    <%= f.file_field :image %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

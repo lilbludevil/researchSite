@@ -1,0 +1,35 @@
+<h1>Admin Page</h1>
+
+<%= link_to 'Edit Environments', environments_path %><br/>
+<%= link_to 'Edit Objectives', objectives_path %><br/>
+<%= link_to 'Edit Scenarios', scenarios_path %><br/>
+
+<table>
+  <tr>
+    <th>Environment</th>
+    <th>Objective</th>
+    <th>Scenario</th>
+    <th>Human Instructions</th>
+    <th>Date Posted</th>
+  </tr>
+
+<% @environments.each do |environment| %>
+  <% environment.objectives.each do |objective| %>
+    <% objective.objectives_scenarios_maps.each do |map| %>
+      <% map.inputs.each do |input| %>
+        <tr>
+          <td><%= environment.name %></td>
+          <td><%= objective.name %></td>
+          <td><%= map.scenario.name %></td>
+          <td><%= input.text %></td>
+          <td><%= input.created_at %></td>
+        </tr>
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %>
+</table>
+
+<br/>
+
+<%= link_to 'View Homepage', index_path %>

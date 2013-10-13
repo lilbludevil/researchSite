@@ -1,0 +1,17 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @scenario.name %>
+</p>
+
+<p>
+  <b>Environment:</b>
+  <%= @scenario.environment_id %>
+</p>
+
+<%= image_tag @scenario.image.url %>
+
+
+<%= link_to 'Edit', edit_scenario_path(@scenario) %> |
+<%= link_to 'Back', scenarios_path %>
