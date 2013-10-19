@@ -16,11 +16,11 @@
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :environment_id %><br />
+    <%= f.label :environment %><br />
     <%= f.select(:environment_id, options_from_collection_for_select(Environment.all, :id, :name, :selected => @scenario.environment_id)) %>
   </div>
   <div class="field">
-    <%= f.label :objective_ids %><br />
+    <%= f.label :objectives %><br />
     <%= f.select(:objective_ids, options_from_collection_for_select(Objective.all, :id, :name, :selected => @scenario.objective_ids), {}, {:multiple => true}) %>
   </div>
   <div class="field">

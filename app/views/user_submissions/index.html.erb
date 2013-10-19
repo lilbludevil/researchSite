@@ -5,11 +5,16 @@
 <p>
   Take a look at the environment below. Now picture your six-year-old cousin 
   in that environment. He has something that he wants to do but needs somebody
-  to tell him how to do it. Give him instructions below so that he can complete
-  his goal.
+  to tell him how to do it.<br/><br/>
 
-  Remember: your cousin is six, which means that he is old enough to understand
-  you but you might want to be a bit more precise than usual, just in case.
+  Since your cousin is six, he is old enough to understand you but you might 
+  want to be a bit more precise than usual, just in case. Give him one sequence 
+  of actions (in complete sentences) that will allow him to complete his goal.<br/><br/>
+
+  Disclosure: Your input will be helping researchers at Cornell University to find
+  connections between human instructions and robot actions. By submitting your
+  post below, you are consenting to let us use your post to help make robots
+  ever more intelligent! Thanks!
 </p>
 
 <h3>Environment: <%= @map.try(:objective).try(:environment).try(:name) %></h3>
@@ -44,3 +49,11 @@
 <% end %>
 
 <%= link_to 'Try Another Scenario', index_path %>
+
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+
+<%= link_to 'Admin Login', admin_index_path %>

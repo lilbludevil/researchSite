@@ -13,23 +13,20 @@
     <th>Date Posted</th>
   </tr>
 
-<% @environments.each do |environment| %>
-  <% environment.objectives.each do |objective| %>
-    <% objective.objectives_scenarios_maps.each do |map| %>
-      <% map.inputs.each do |input| %>
-        <tr>
-          <td><%= environment.name %></td>
-          <td><%= objective.name %></td>
-          <td><%= map.scenario.name %></td>
-          <td><%= input.text %></td>
-          <td><%= input.created_at %></td>
-        </tr>
-      <% end %>
-    <% end %>
-  <% end %>
+<% @inputs.each do |input| %>
+  <tr>
+    <td><%= input.objectives_scenarios_map.scenario.environment.name %></td>
+    <td><%= input.objectives_scenarios_map.objective.name %></td>
+    <td><%= input.objectives_scenarios_map.scenario.name %></td>
+    <td><%= input.text %></td>
+    <td><%= input.created_at %></td>
+  </tr>
 <% end %>
 </table>
 
 <br/>
-
+<%= paginate @inputs %>
+<br/>
 <%= link_to 'View Homepage', index_path %>
+<br/>
+<%= link_to('Logout', destroy_admin_session_path, :method => :delete) %>  
