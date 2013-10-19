@@ -24,6 +24,7 @@
     <%= f.select(:objective_ids, options_from_collection_for_select(Objective.all, :id, :name, :selected => @scenario.objective_ids), {}, {:multiple => true}) %>
   </div>
   <div class="field">
+    <%= f.label :scene_image %><br/>
     <%= f.file_field :image %>
   </div>
   <div class="actions">
