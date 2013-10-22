@@ -1,0 +1,24 @@
+<h1>Cornell Personal Robotics Lab - Research Project</h1>
+<h3>Dipendra Kumar Misra, Ashutosh Saxena, and Kevin Lee</h3>
+<h3>Fall 2013</h3>
+
+<p>
+  Hi there! We are a team of researchers at Cornell University hoping to find
+  connections between human instructions and robot actions. Robots struggle
+  with ambiguity. Even a command as simple as "boil water" can cause a robot
+  to go haywire, as there are so many variations on procedures to take with no
+  obvious way to account for all of them.<br/><br/>
+
+  To tackle this problem, we are hoping to collect data on how humans break down 
+  these types of commands in different scenarios and let the robot learn from this 
+  dataset. We will be extremely grateful if you choose to help us collect data 
+  by playing a little game that we designed.<br/><br/>
+
+  By checking the box below you are allowing Cornell University to access
+  any subsequent inputs that you make on this site and helping to make
+  robots ever more intelligent. Thanks!
+</p>
+
+<%= form_tag(verify_terms_and_conditions_path, method: :post) %>
+<%= check_box_tag('verify') %>
+<%= submit_tag('Proceed') %>

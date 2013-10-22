@@ -1,13 +1,29 @@
 class UserSubmissionsController < ApplicationController
-  def index
-    offset = rand(ObjectivesScenariosMap.count)
-    @map = ObjectivesScenariosMap.first(:offset => offset)
-    @input = Input.new
-    @test = Input.first
+  def terms_and_conditions
+  end
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @input }
+  def verify_terms_and_conditions
+    if params[:verify]
+      cookies[:terms_and_conditions] = true
+      redirect_to index_path
+    else
+      cookies.delete(:terms_and_conditions)
+    end
+  end
+
+  def index
+    if cookies[:terms_and_conditions]
+      offset = rand(ObjectivesScenariosMap.count)
+      @map = ObjectivesScenariosMap.first(:offset => offset)
+      @input = Input.new
+      @test = Input.first
+
+      respond_to do |format|
+        format.html # index.html.erb
+        format.json { render json: @input }
+      end
+    else
+      redirect_to terms_and_conditions_path
     end
   end
 

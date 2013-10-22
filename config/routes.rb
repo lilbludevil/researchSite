@@ -1,6 +1,8 @@
 ResearchSite::Application.routes.draw do
   resources :environments
 
+  get 'terms_and_conditions', to: 'user_submissions#terms_and_conditions', as: 'terms_and_conditions'
+  post 'verify', to: 'user_submissions#verify_terms_and_conditions', as: 'verify_terms_and_conditions'
 
   root :to => "user_submissions#index"
   
