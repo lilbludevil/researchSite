@@ -9,6 +9,8 @@ ResearchSite::Application.routes.draw do
   get 'index', to: 'user_submissions#index', as: 'index'
   post 'create_input', to: 'user_submissions#create_input'
 
+  get 'game', to: 'user_submissions#game', as: 'game'
+
   get 'admin', to: 'admin#index', as: 'admin_index'
 
   resources :scenarios

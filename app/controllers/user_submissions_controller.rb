@@ -39,4 +39,7 @@ class UserSubmissionsController < ApplicationController
       end
     end
   end
+
+  def game
+  end
 end
